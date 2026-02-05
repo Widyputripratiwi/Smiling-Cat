@@ -1,0 +1,153 @@
+[2026-01-17T04:44:48.149Z] Request URL: https://serverless.roboflow.com/maria-angelica-krgdu/skin-disease-of-cat/1?api_key=7pkq2AuUtkeDVsFQNN8v
+[2026-01-17T04:44:48.150Z] Image buffer size: 7703 bytes
+[2026-01-17T04:44:49.248Z] Response status: 405
+[2026-01-17T04:44:49.250Z] API Error: 405 - {"detail":"Method Not Allowed"}
+[2026-01-17T04:48:33.843Z] Request URL: https://serverless.roboflow.com/maria-angelica-krgdu/skin-disease-of-cat/1?api_key=7pkq2AuUtkeDVsFQNN8v
+[2026-01-17T04:48:33.844Z] Image buffer size: 163496 bytes
+[2026-01-17T04:48:36.291Z] Response status: 405
+[2026-01-17T04:48:36.293Z] API Error: 405 - {"detail":"Method Not Allowed"}
+[2026-01-17T05:14:07.330Z] Request URL: https://detect.roboflow.com/maria-angelica-krgdu/skin-disease-of-cat/1?api_key=7pkq2AuUtkeDVsFQNN8v
+[2026-01-17T05:14:07.331Z] Image buffer size: 7703 bytes
+[2026-01-17T05:14:08.757Z] Response status: 405
+[2026-01-17T05:14:08.760Z] API Error: 405 - {"detail":"Method Not Allowed"}
+[2026-01-17T06:46:48.161Z] Request URL: https://serverless.roboflow.com/maria-angelica-krgdu/skin-disease-of-cat/1
+[2026-01-17T06:46:48.162Z] Image buffer size: 163496 bytes
+[2026-01-17T06:46:50.999Z] API Error: 405 - {"detail":"Method Not Allowed"}
+[2026-01-17T07:43:43.803Z] Request URL: https://serverless.roboflow.com/maria-angelica-krgdu/skin-disease-of-cat/1
+[2026-01-17T07:43:43.805Z] Image buffer size: 6170 bytes
+[2026-01-17T07:43:45.289Z] API Error: 405 - {"detail":"Method Not Allowed"}
+[2026-01-17T10:20:30.468Z] Request URL: https://serverless.roboflow.com/maria-angelica-krgdu/skin-disease-of-cat/1
+[2026-01-17T10:20:30.471Z] Image buffer size: 7703 bytes
+[2026-01-17T10:20:33.461Z] API Error: 405 - {"detail":"Method Not Allowed"}
+[2026-01-17T10:25:53.798Z] Request URL: https://serverless.roboflow.com/maria-angelica-krgdu/skin-disease-of-cat/1
+[2026-01-17T10:25:53.799Z] Image buffer size: 6170 bytes
+[2026-01-17T10:25:55.191Z] API Error: 405 - {"detail":"Method Not Allowed"}
+[2026-01-18T11:05:35.352Z] Request URL: https://serverless.roboflow.com/maria-angelica-krgdu/skin-disease-of-cat/1
+[2026-01-18T11:05:35.354Z] Image buffer size: 163496 bytes
+[2026-01-18T11:05:37.865Z] API Error: 405 - {"detail":"Method Not Allowed"}
+[2026-01-18T14:31:01.197Z] Request URL: https://classify.roboflow.com/cat-skin-disease-dza04-3hqqq/1
+[2026-01-18T14:31:01.198Z] Image buffer size: 163496 bytes
+[2026-01-18T14:31:05.806Z] Response status: 200
+[2026-01-18T14:31:05.807Z] Response: {"inference_id":"aa080a6f-c3ff-4343-8279-5c55dbbbed0a","time":0.0409679460000234,"image":{"width":1200,"height":800},"predictions":[{"class":"Scabies","class_id":3,"confidence":0.703}],"top":"Scabies","confidence":0.703}
+[2026-01-18T14:31:05.808Z] Predictions count: 1
+[2026-01-18T14:58:44.536Z] Request URL: https://classify.roboflow.com/cat-skin-disease-dza04-3hqqq/1
+[2026-01-18T14:58:44.538Z] Image buffer size: 40143 bytes
+[2026-01-18T14:58:48.729Z] Response status: 200
+[2026-01-18T14:58:48.729Z] Response: {"inference_id":"4c8bf3bb-551f-4d20-bc4a-98203dbec131","time":0.01921309099998325,"image":{"width":650,"height":433},"predictions":[{"class":"Scabies","class_id":3,"confidence":0.6175}],"top":"Scabies","confidence":0.6175}
+[2026-01-18T14:58:48.729Z] Predictions count: 1
+[2026-02-03T17:51:37.103Z] Starting analysis with scanType: both
+[2026-02-03T17:51:37.105Z] Image buffer size: 6170 bytes
+[2026-02-03T17:51:37.106Z] [SKIN] Request URL: https://classify.roboflow.com/cat-skin-disease-leact/1
+[2026-02-03T17:51:37.136Z] [EYE] Request URL: https://detect.roboflow.com/dog-eye-problems-detection-ysqun/1
+[2026-02-03T17:51:42.885Z] [EYE] Response: {"inference_id":"dc6b3a50-443f-4bc0-8ea4-ee74f83a45c6","time":0.8421081210003649,"image":{"width":275,"height":183},"predictions":[]}
+[2026-02-03T17:51:44.226Z] [SKIN] Response: {"inference_id":"d26dda68-c8bc-44a3-a174-68dc9936340e","time":0.07004370000001359,"image":{"width":275,"height":183},"predictions":[]}
+[2026-02-03T18:13:48.105Z] Starting analysis with scanType: both
+[2026-02-03T18:13:48.108Z] Image buffer size: 279129 bytes
+[2026-02-03T18:13:48.109Z] [SKIN] Request URL: https://classify.roboflow.com/cat-skin-disease-leact/1
+[2026-02-03T18:13:48.140Z] [EYE] Request URL: https://detect.roboflow.com/dog-eye-problems-detection-ysqun/1
+[2026-02-03T18:13:53.019Z] [SKIN] Response: {"inference_id":"b7042528-204e-4f71-b4d2-d067b2cccbc3","time":0.07388899500006119,"image":{"width":1080,"height":1076},"predictions":[]}
+[2026-02-03T18:13:53.304Z] [EYE] Response: {"inference_id":"85b52cf1-dbde-4374-95ec-6de8d1ecae55","time":0.5114875140000095,"image":{"width":1080,"height":1076},"predictions":[]}
+[2026-02-03T18:20:47.513Z] Starting analysis with scanType: both
+[2026-02-03T18:20:47.513Z] Image buffer size: 279129 bytes
+[2026-02-03T18:20:47.515Z] [SKIN] Request URL: https://classify.roboflow.com/cat-skin-disease-leact/1
+[2026-02-03T18:20:47.579Z] [EYE] Request URL: https://detect.roboflow.com/dog-eye-problems-detection-ysqun/1
+[2026-02-03T18:20:50.943Z] [EYE] Response: {"inference_id":"d8c22e13-7c4f-4bc7-ae51-6e59aa6f08a1","time":0.4927913219999027,"image":{"width":1080,"height":1076},"predictions":[]}
+[2026-02-03T18:20:52.481Z] [SKIN] Response: {"inference_id":"cf46266a-039f-4b85-a28f-dc4eee3727a9","time":0.16214027000023634,"image":{"width":1080,"height":1076},"predictions":[]}
+[2026-02-05T20:09:45.728Z] Starting analysis with scanType: both
+[2026-02-05T20:09:45.729Z] Image buffer size: 279129 bytes
+[2026-02-05T20:09:45.730Z] [SKIN] Request URL: https://classify.roboflow.com/cat-skin-disease-leact/1
+[2026-02-05T20:09:45.768Z] [EYE] Request URL: https://detect.roboflow.com/dog-eye-problems-detection-ysqun/2
+[2026-02-05T20:09:50.206Z] [EYE] Response: {"inference_id":"40eba235-11de-4e3f-820e-9f9995e41b3b","time":0.046955732000014905,"image":{"width":1080,"height":1076},"predictions":[{"x":539.5,"y":535,"width":1049,"height":1062,"confidence":0.7087095975875854,"class":"conjunctivitis","class_id":0,"detection_id":"0c70f64e-5b78-4266-bea3-8c9f2be851e0"}]}
+[2026-02-05T20:09:51.145Z] [SKIN] Response: {"inference_id":"b6238ea4-9e69-4c5a-9642-83b1cfcd3403","time":0.07757766699990043,"image":{"width":1080,"height":1076},"predictions":[]}
+[2026-02-05T20:10:25.409Z] Starting analysis with scanType: both
+[2026-02-05T20:10:25.409Z] Image buffer size: 40143 bytes
+[2026-02-05T20:10:25.410Z] [SKIN] Request URL: https://classify.roboflow.com/cat-skin-disease-leact/1
+[2026-02-05T20:10:25.415Z] [EYE] Request URL: https://detect.roboflow.com/dog-eye-problems-detection-ysqun/2
+[2026-02-05T20:10:26.667Z] [SKIN] Response: {"inference_id":"5b446dee-5c56-4139-8938-a84825aa4bec","time":0.05369652199999564,"image":{"width":650,"height":433},"predictions":[]}
+[2026-02-05T20:10:27.563Z] [EYE] Response: {"inference_id":"4ffc721c-fb94-4bb8-8236-2018d938a418","time":0.06191629099976126,"image":{"width":650,"height":433},"predictions":[{"x":380.5,"y":207.5,"width":487,"height":411,"confidence":0.44056400656700134,"class":"eyelid_lump","class_id":2,"detection_id":"5754f48f-9c77-435f-b4d9-089767348de3"}]}
+[2026-02-05T20:11:09.248Z] Starting analysis with scanType: both
+[2026-02-05T20:11:09.249Z] Image buffer size: 163496 bytes
+[2026-02-05T20:11:09.250Z] [SKIN] Request URL: https://classify.roboflow.com/cat-skin-disease-leact/1
+[2026-02-05T20:11:09.256Z] [EYE] Request URL: https://detect.roboflow.com/dog-eye-problems-detection-ysqun/2
+[2026-02-05T20:11:11.088Z] [SKIN] Response: {"inference_id":"8c887fd9-a737-4e48-bfd6-4350788dc9e8","time":0.0685109769999599,"image":{"width":1200,"height":800},"predictions":[]}
+[2026-02-05T20:11:11.090Z] [EYE] Response: {"inference_id":"989f643b-d4db-426d-81d4-24203530902b","time":0.04893283599994902,"image":{"width":1200,"height":800},"predictions":[{"x":923,"y":380.5,"width":554,"height":757,"confidence":0.5929303169250488,"class":"eyelid_lump","class_id":2,"detection_id":"01a07b50-7e29-4b35-8646-00eb6f625304"}]}
+[2026-02-05T20:38:29.219Z] Starting analysis with scanType: both
+[2026-02-05T20:38:29.220Z] Image buffer size: 163496 bytes
+[2026-02-05T20:38:29.221Z] [SKIN] Request URL: https://outline.roboflow.com/cat-skin-disease-leact/1
+[2026-02-05T20:38:29.581Z] [EYE] Request URL: https://detect.roboflow.com/dog-eye-problems-detection-ysqun/2
+[2026-02-05T20:38:33.174Z] [EYE] Response: {"inference_id":"b582e650-9f03-4a20-a28c-b3614de9676e","time":0.059186850000060076,"image":{"width":1200,"height":800},"predictions":[{"x":923,"y":380.5,"width":554,"height":757,"confidence":0.5929303169250488,"class":"eyelid_lump","class_id":2,"detection_id":"eb300f30-a6b4-4067-a678-de61261cc180"}]}
+[2026-02-05T20:38:34.885Z] [SKIN] Response: {"inference_id":"17b69e47-7e5b-4724-aa3b-7fd53c4c795c","time":0.06482382199999392,"image":{"width":1200,"height":800},"predictions":[]}
+[2026-02-05T20:53:23.353Z] Starting analysis with scanType: both
+[2026-02-05T20:53:23.354Z] Image buffer size: 163496 bytes
+[2026-02-05T20:53:23.355Z] [SKIN] Request URL: https://outline.roboflow.com/cat-skin-disease-leact/1
+[2026-02-05T20:53:23.394Z] [EYE] Request URL: https://detect.roboflow.com/dog-eye-problems-detection-ysqun/2
+[2026-02-05T20:53:27.304Z] [EYE] Response: {"inference_id":"1448b5cf-ee79-4e49-8187-e6470dbf1030","time":0.0542196490000606,"image":{"width":1200,"height":800},"predictions":[{"x":923,"y":380.5,"width":554,"height":757,"confidence":0.5929303169250488,"class":"eyelid_lump","class_id":2,"detection_id":"4b5e5493-8bb4-4831-9aea-2bdcc074c3fc"}]}
+[2026-02-05T20:53:27.580Z] [SKIN] Response: {"inference_id":"9c4c66dc-4499-40ca-9278-03befbc87b36","time":0.10156352400008473,"image":{"width":1200,"height":800},"predictions":[]}
+[2026-02-05T20:57:12.042Z] Starting analysis with scanType: both
+[2026-02-05T20:57:12.043Z] Image buffer size: 279129 bytes
+[2026-02-05T20:57:12.044Z] [SKIN] Request URL: https://classify.roboflow.com/cat-skin-disease-dza04-3hqqq/1
+[2026-02-05T20:57:12.080Z] [EYE] Request URL: https://detect.roboflow.com/dog-eye-problems-detection-ysqun/2
+[2026-02-05T20:57:16.919Z] [EYE] Response: {"inference_id":"3e8a258f-9cc9-4492-83e7-122c4ce953c6","time":0.05328772600000775,"image":{"width":1080,"height":1076},"predictions":[{"x":539.5,"y":535,"width":1049,"height":1062,"confidence":0.7087095975875854,"class":"conjunctivitis","class_id":0,"detection_id":"5dbae9f8-e338-4106-8287-9ed3232e5ad6"}]}
+[2026-02-05T20:57:16.920Z] [EYE] Filtered out oversized detection: conjunctivitis covers 95.9% of image
+[2026-02-05T20:57:16.922Z] [SKIN] Response: {"inference_id":"a491ef58-e22e-4113-9ce1-5f5ac7266dbd","time":0.03730834500038327,"image":{"width":1080,"height":1076},"predictions":[{"class":"Scabies","class_id":3,"confidence":0.417}],"top":"Scabies","confidence":0.417}
+[2026-02-05T20:57:52.852Z] Starting analysis with scanType: both
+[2026-02-05T20:57:52.853Z] Image buffer size: 163496 bytes
+[2026-02-05T20:57:52.853Z] [SKIN] Request URL: https://classify.roboflow.com/cat-skin-disease-dza04-3hqqq/1
+[2026-02-05T20:57:52.865Z] [EYE] Request URL: https://detect.roboflow.com/dog-eye-problems-detection-ysqun/2
+[2026-02-05T20:57:55.416Z] [SKIN] Response: {"inference_id":"b8b00b6b-45ce-436e-ab73-b156c44a515a","time":0.04867388200000278,"image":{"width":1200,"height":800},"predictions":[{"class":"Scabies","class_id":3,"confidence":0.703}],"top":"Scabies","confidence":0.703}
+[2026-02-05T20:57:55.718Z] [EYE] Response: {"inference_id":"243d0bcb-bea6-4d69-8ef9-eee750dd21a8","time":0.14373119500032772,"image":{"width":1200,"height":800},"predictions":[{"x":923,"y":380.5,"width":554,"height":757,"confidence":0.5929303169250488,"class":"eyelid_lump","class_id":2,"detection_id":"21c85ff3-8ba8-4068-81de-f40283fe5259"}]}
+[2026-02-05T21:01:25.320Z] Starting analysis with scanType: both
+[2026-02-05T21:01:25.322Z] Image buffer size: 279129 bytes
+[2026-02-05T21:01:25.324Z] [SKIN] Request URL: https://classify.roboflow.com/cat-skin-disease-dza04-3hqqq/1
+[2026-02-05T21:01:25.356Z] [EYE] Request URL: https://detect.roboflow.com/dog-eye-problems-detection-ysqun/2
+[2026-02-05T21:01:29.100Z] [SKIN] Response: {"inference_id":"1b43bc02-ad40-442d-b838-c9726a807739","time":0.09967919300004269,"image":{"width":1080,"height":1076},"predictions":[{"class":"Scabies","class_id":3,"confidence":0.417}],"top":"Scabies","confidence":0.417}
+[2026-02-05T21:01:29.852Z] [EYE] Response: {"inference_id":"ef6e0e3f-3b6e-4b4a-939c-8440be1f041d","time":0.06346690800000943,"image":{"width":1080,"height":1076},"predictions":[{"x":539.5,"y":535,"width":1049,"height":1062,"confidence":0.7087095975875854,"class":"conjunctivitis","class_id":0,"detection_id":"a91bc2d9-3949-4f81-8e6d-158296adffd9"}]}
+[2026-02-05T21:01:29.853Z] [EYE] Filtered out oversized detection: conjunctivitis covers 95.9% of image
+[2026-02-05T21:02:00.575Z] Starting analysis with scanType: both
+[2026-02-05T21:02:00.576Z] Image buffer size: 163496 bytes
+[2026-02-05T21:02:00.576Z] [SKIN] Request URL: https://classify.roboflow.com/cat-skin-disease-dza04-3hqqq/1
+[2026-02-05T21:02:00.585Z] [EYE] Request URL: https://detect.roboflow.com/dog-eye-problems-detection-ysqun/2
+[2026-02-05T21:02:03.139Z] [EYE] Response: {"inference_id":"a775fc37-d8cc-4f02-8979-681301456e4b","time":0.054316204999850015,"image":{"width":1200,"height":800},"predictions":[{"x":923,"y":380.5,"width":554,"height":757,"confidence":0.5929303169250488,"class":"eyelid_lump","class_id":2,"detection_id":"e1d50a2a-f99b-452f-beb5-9032cd6db638"}]}
+[2026-02-05T21:02:03.140Z] [EYE] Filtered out oversized detection: eyelid_lump covers 43.7% of image
+[2026-02-05T21:02:03.143Z] [SKIN] Response: {"inference_id":"aeeceacc-7328-4bf3-bf01-7400f07dbf6d","time":0.09867126099993584,"image":{"width":1200,"height":800},"predictions":[{"class":"Scabies","class_id":3,"confidence":0.703}],"top":"Scabies","confidence":0.703}
+[2026-02-05T21:02:41.239Z] Starting analysis with scanType: both
+[2026-02-05T21:02:41.239Z] Image buffer size: 31845 bytes
+[2026-02-05T21:02:41.240Z] [SKIN] Request URL: https://classify.roboflow.com/cat-skin-disease-dza04-3hqqq/1
+[2026-02-05T21:02:41.246Z] [EYE] Request URL: https://detect.roboflow.com/dog-eye-problems-detection-ysqun/2
+[2026-02-05T21:02:42.561Z] [SKIN] Response: {"inference_id":"de19784f-776f-49da-ba71-44556ad2f59d","time":0.014430514999958177,"image":{"width":400,"height":358},"predictions":[{"class":"Health","class_id":2,"confidence":0.878}],"top":"Health","confidence":0.878}
+[2026-02-05T21:02:43.893Z] [EYE] Response: {"inference_id":"6c27d914-2f33-496f-acbe-0fc23a7316d2","time":0.05255477799983055,"image":{"width":400,"height":358},"predictions":[{"x":200.5,"y":182,"width":397,"height":346,"confidence":0.47908228635787964,"class":"healthy","class_id":3,"detection_id":"2ec512b8-c19a-4566-9d25-0fd964fd9da1"}]}
+[2026-02-05T21:02:43.894Z] [EYE] Filtered out low confidence detection: healthy (47.9%)
+[2026-02-05T21:05:22.867Z] Starting analysis with scanType: both
+[2026-02-05T21:05:22.868Z] Image buffer size: 30365 bytes
+[2026-02-05T21:05:22.869Z] [SKIN] Request URL: https://classify.roboflow.com/cat-skin-disease-dza04-3hqqq/1
+[2026-02-05T21:05:22.907Z] [EYE] Request URL: https://detect.roboflow.com/dog-eye-problems-detection-ysqun/2
+[2026-02-05T21:05:25.803Z] [EYE] Response: {"inference_id":"611929b1-d7e9-4095-9290-d395e823cb7b","time":0.039102947000003496,"image":{"width":576,"height":324},"predictions":[{"x":302.5,"y":162.5,"width":547,"height":323,"confidence":0.47636470198631287,"class":"healthy","class_id":3,"detection_id":"f4d6a691-751f-4250-9e0a-acd82aca9aae"}]}
+[2026-02-05T21:05:30.611Z] [SKIN] Response: {"inference_id":"85e45bd7-828e-4397-9900-d894ff5fd159","time":0.015773566000007122,"image":{"width":576,"height":324},"predictions":[{"class":"Health","class_id":2,"confidence":0.9586}],"top":"Health","confidence":0.9586}
+[2026-02-05T21:18:29.409Z] Starting analysis with scanType: skin
+[2026-02-05T21:18:29.410Z] Image buffer size: 40143 bytes
+[2026-02-05T21:18:29.412Z] [SKIN] Request URL: https://classify.roboflow.com/cat-skin-disease-dza04-3hqqq/1
+[2026-02-05T21:18:33.066Z] [SKIN] Response: {"inference_id":"870d1d99-6318-49a7-9d3f-ff9c65d93882","time":0.02508080899997367,"image":{"width":650,"height":433},"predictions":[{"class":"Scabies","class_id":3,"confidence":0.6175}],"top":"Scabies","confidence":0.6175}
+[2026-02-05T21:18:39.763Z] Starting analysis with scanType: skin
+[2026-02-05T21:18:39.763Z] Image buffer size: 40143 bytes
+[2026-02-05T21:18:39.763Z] [SKIN] Request URL: https://classify.roboflow.com/cat-skin-disease-dza04-3hqqq/1
+[2026-02-05T21:18:55.054Z] [SKIN] Response: {"inference_id":"060847a1-76b9-4543-b0c9-92098c694f5b","time":0.031093215999987933,"image":{"width":650,"height":433},"predictions":[{"class":"Scabies","class_id":3,"confidence":0.6175}],"top":"Scabies","confidence":0.6175}
+[2026-02-05T21:27:08.454Z] Starting analysis with scanType: skin
+[2026-02-05T21:27:08.455Z] Image buffer size: 163496 bytes
+[2026-02-05T21:27:08.457Z] [SKIN] Request URL: https://classify.roboflow.com/cat-skin-disease-dza04-3hqqq/1
+[2026-02-05T21:27:38.623Z] [SKIN] Response: {"inference_id":"9fcb5148-90f2-40b1-84df-e054c9ca541d","time":0.08031980499998781,"image":{"width":1200,"height":800},"predictions":[{"class":"Scabies","class_id":3,"confidence":0.703}],"top":"Scabies","confidence":0.703}
+[2026-02-05T21:28:14.057Z] Starting analysis with scanType: skin
+[2026-02-05T21:28:14.057Z] Image buffer size: 40143 bytes
+[2026-02-05T21:28:14.057Z] [SKIN] Request URL: https://classify.roboflow.com/cat-skin-disease-dza04-3hqqq/1
+[2026-02-05T21:28:15.793Z] [SKIN] Response: {"inference_id":"149aa6eb-0361-4a26-97dc-9a0add374439","time":0.0369897169999831,"image":{"width":650,"height":433},"predictions":[{"class":"Scabies","class_id":3,"confidence":0.6175}],"top":"Scabies","confidence":0.6175}
+[2026-02-05T21:29:30.245Z] Starting analysis with scanType: skin
+[2026-02-05T21:29:30.245Z] Image buffer size: 57673 bytes
+[2026-02-05T21:29:30.246Z] [SKIN] Request URL: https://classify.roboflow.com/cat-skin-disease-dza04-3hqqq/1
+[2026-02-05T21:29:31.628Z] [SKIN] Response: {"inference_id":"cec45ffa-69c5-4f47-b906-1351eafd6695","time":0.02029048900004682,"image":{"width":750,"height":375},"predictions":[{"class":"Ringworm","class_id":0,"confidence":0.9756}],"top":"Ringworm","confidence":0.9756}
+[2026-02-05T21:31:06.312Z] Starting analysis with scanType: skin
+[2026-02-05T21:31:06.313Z] Image buffer size: 116052 bytes
+[2026-02-05T21:31:06.313Z] [SKIN] Request URL: https://classify.roboflow.com/cat-skin-disease-dza04-3hqqq/1
+[2026-02-05T21:31:08.056Z] [SKIN] Response: {"inference_id":"3d04cf21-97a2-4f28-ae61-b213125295dc","time":0.03201539600001979,"image":{"width":1200,"height":801},"predictions":[{"class":"Flea Allergy","class_id":1,"confidence":0.9942}],"top":"Flea Allergy","confidence":0.9942}
+[2026-02-05T21:31:28.319Z] Starting analysis with scanType: skin
+[2026-02-05T21:31:28.320Z] Image buffer size: 6186 bytes
+[2026-02-05T21:31:28.320Z] [SKIN] Request URL: https://classify.roboflow.com/cat-skin-disease-dza04-3hqqq/1
+[2026-02-05T21:31:30.262Z] [SKIN] Response: {"inference_id":"247776d6-a013-47ab-904c-352868651211","time":0.01809031200014033,"image":{"width":225,"height":225},"predictions":[{"class":"Ringworm","class_id":0,"confidence":0.6518}],"top":"Ringworm","confidence":0.6518}

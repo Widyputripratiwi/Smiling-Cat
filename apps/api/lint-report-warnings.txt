@@ -1,0 +1,59 @@
+﻿
+> @smiling-cat/api@1.0.0 lint
+> eslint .
+
+
+D:\Smiling-Cat\apps\api\src\middleware\auth.middleware.ts
+  47:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\Smiling-Cat\apps\api\src\routes\consultation.routes.ts
+   15:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+   25:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+   43:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+   65:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+   86:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+  110:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+  142:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\Smiling-Cat\apps\api\src\routes\notification.routes.ts
+  15:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+  25:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+  45:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+  55:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+  75:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\Smiling-Cat\apps\api\src\routes\pet.routes.ts
+   16:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+   34:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+   60:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+   90:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+  110:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\Smiling-Cat\apps\api\src\routes\scan.routes.ts
+   22:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+   36:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+  112:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\Smiling-Cat\apps\api\src\routes\vaccination.routes.ts
+   16:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+   32:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+   64:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+   95:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+  118:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+  141:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\Smiling-Cat\apps\api\src\services\consultation.service.ts
+  78:54  warning  'userId' is defined but never used. Allowed unused args must match /^_/u  @typescript-eslint/no-unused-vars
+
+D:\Smiling-Cat\apps\api\src\services\notification.service.ts
+  3:25  warning  'notificationTypeEnum' is defined but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+
+D:\Smiling-Cat\apps\api\src\services\scan.service.ts
+  1:14  warning  'and' is defined but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+
+D:\Smiling-Cat\apps\api\src\services\vaccination.service.ts
+   3:24  warning  'vaccinationStatusEnum' is defined but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+  42:35  warning  'userId' is defined but never used. Allowed unused args must match /^_/u                 @typescript-eslint/no-unused-vars
+
+Γ£û 32 problems (0 errors, 32 warnings)
+
