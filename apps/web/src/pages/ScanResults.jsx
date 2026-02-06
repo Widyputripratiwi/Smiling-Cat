@@ -117,6 +117,17 @@ export default function ScanResults() {
                             </div>
                         </div>
 
+                        {/* Low confidence warning */}
+                        {scan.confidence < 0.3 && (
+                            <div className="mb-4 p-3 bg-yellow-100 dark:bg-yellow-900/30 border border-yellow-300 dark:border-yellow-700 rounded-xl flex items-start gap-2">
+                                <span className="material-symbols-outlined text-yellow-600 dark:text-yellow-400">warning</span>
+                                <div>
+                                    <p className="text-sm font-bold text-yellow-700 dark:text-yellow-400">Keyakinan Rendah</p>
+                                    <p className="text-xs text-yellow-600 dark:text-yellow-500">Pastikan foto menampilkan kucing dengan jelas. Jika bukan foto kucing, hasil mungkin tidak akurat.</p>
+                                </div>
+                            </div>
+                        )}
+
                         <div className="space-y-4 relative z-10">
                             <div className={`p-4 rounded-xl border ${isHealthy
                                 ? 'bg-green-50/50 dark:bg-green-900/10 border-green-100 dark:border-green-800/20'
