@@ -13,6 +13,7 @@ export const auth = betterAuth({
             verification: schema.verifications,
         },
     }),
+    basePath: '/api/auth', // Must match the mount path in index.ts
     emailAndPassword: {
         enabled: true,
         autoSignIn: true,
