@@ -13,9 +13,14 @@ export const auth = betterAuth({
             verification: schema.verifications,
         },
     }),
+    basePath: '/api/auth', // Tell Better Auth where it's mounted
     emailAndPassword: {
         enabled: true,
         autoSignIn: true,
     },
-    trustedOrigins: ['http://localhost:5173'],
+    trustedOrigins: [
+        'http://localhost:5173',
+        'http://203.175.11.165',
+        process.env.FRONTEND_URL || '',
+    ].filter(Boolean),
 });
