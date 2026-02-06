@@ -169,22 +169,7 @@ export default function Register() {
                     </button>
                 </form>
 
-                <div className="relative flex py-6 items-center">
-                    <div className="flex-grow border-t border-border-light dark:border-border-dark"></div>
-                    <span className="flex-shrink-0 mx-4 text-gray-400 text-xs font-medium uppercase tracking-wider">Atau lanjut dengan</span>
-                    <div className="flex-grow border-t border-border-light dark:border-border-dark"></div>
-                </div>
 
-                <div className="grid grid-cols-2 gap-4">
-                    <button className="flex items-center justify-center gap-2 h-11 border border-border-light dark:border-border-dark rounded-full hover:bg-gray-50 dark:hover:bg-white/5 transition-colors bg-white dark:bg-transparent">
-                        <img alt="Google" className="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUBnqm2hB09pcLfoF3RPNsHeMKsCxQCNymbu2WB5ClB1MmKFpbZu6iccCCSCgPxyVlwax-h118lxiK-VOutH3JiR6OpjU3QrxgeWJkzVh_0LqkOPfP_rzfTcAigc_T7Us1q1Oer4L0Ujs-KACOmMutAH7SPfxDxBTpAT-TEMaby4vSbI7VgTt9GShpDs_KPFIH3Gjq5bv9PKySSG1cImzGJU09o9F_OCf0vvVsYj9vOnxWzfoM7fdsejgZgorc1ib_nmkyZcpx2BOY" />
-                        <span className="text-sm font-semibold text-text-main dark:text-white">Google</span>
-                    </button>
-                    <button className="flex items-center justify-center gap-2 h-11 border border-border-light dark:border-border-dark rounded-full hover:bg-gray-50 dark:hover:bg-white/5 transition-colors bg-white dark:bg-transparent">
-                        <img alt="Apple" className="w-5 h-5 dark:invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeW2k8GP30ZsCrA9XeE-EU5ukKGhuRE8iPnY8sPWZmItfta4HQavnIltmhzavFt-IPM9o-mDNAoQE_UVV5U1q5IVbbT9AecNihDlGRP2CiG301wCJgB2jqAPF9qNKULcKGU-6S1wRriTeG8Vxn1llU1wSHOp5ByDaba78pe2ow-5iU-ZHv3UGkuUWRTu1abWURHO57azhpmPaxFnCtJEc55LkjRNjtqkwdn7f8K9B1t1jj0ExRnu847JbnqajjPjWBEUxDrHbrkpQ0" />
-                        <span className="text-sm font-semibold text-text-main dark:text-white">Apple</span>
-                    </button>
-                </div>
 
                 <div className="mt-8 text-center">
                     <p className="text-sm text-text-muted">

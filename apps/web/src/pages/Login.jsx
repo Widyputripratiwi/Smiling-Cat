@@ -111,31 +111,7 @@ export default function Login() {
                     </button>
                 </form>
 
-                <div className="relative my-6">
-                    <div className="absolute inset-0 flex items-center">
-                        <div className="w-full border-t border-border-light dark:border-border-dark"></div>
-                    </div>
-                    <div className="relative flex justify-center text-xs">
-                        <span className="px-2 bg-white dark:bg-card-dark text-text-muted font-medium">Atau lanjut dengan</span>
-                    </div>
-                </div>
 
-                <div className="grid grid-cols-2 gap-3 mb-6">
-                    <button
-                        onClick={() => handleSocialLogin('google')}
-                        className="flex items-center justify-center gap-2 h-10 border border-border-light dark:border-border-dark rounded-lg hover:bg-background-light dark:hover:bg-background-dark transition-colors"
-                    >
-                        <div className="w-5 h-5 bg-center bg-no-repeat bg-contain" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAFT7lAdrmAheFdrCuUOC8ordLhE_Z2N5nYmNQC2BuFVv1MmhKwt4YnpMzxZqtTG_9m2P1WyRmZA5Fi1pMxwtLBlzx0RvH5BDKUH4MkbLhdsS_djzx-h_fs3Sx4zgKwGWizsKZjGSkuL0aI_8TWN9S2rP-fuNO7puu0gHFBcNO13o1MRvHE-qWTcZpOvpCy1D6j_HMTBc6BIXtQF8BNIosyE-b-FtzAjcI5KG2rEgEait-AebCu6lShQ8u2c_n4eu-1fXfEGKfjE36g')" }}></div>
-                        <span className="text-sm font-medium text-text-main dark:text-white">Google</span>
-                    </button>
-                    <button
-                        onClick={() => handleSocialLogin('apple')}
-                        className="flex items-center justify-center gap-2 h-10 border border-border-light dark:border-border-dark rounded-lg hover:bg-background-light dark:hover:bg-background-dark transition-colors"
-                    >
-                        <div className="w-5 h-5 bg-center bg-no-repeat bg-contain" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBCvyWdwe815JiLjb1YQ0Gd7oUtyjt01kYoa7PTDj7gijpqn1NzoJx9XvMVEhFh_gEAdiy7JkWnse2w2W1gKPUIwjm-k1tQIXdL69vow6VvwbMMZWds_Bl1NGfQWTtvUfyMAem0PotvBMv5AuB90PvZv5zhxJyVitLR7PK49idJWcIOucheJYrfD58InaWIXcq8QHALsgXsYAtr_45yivBhor6hU4j3NhPIC0FEmCtT0_eYwWd0GV9VZ2gRXsWNNnVSsLKmZeq9RbdW')" }}></div>
-                        <span className="text-sm font-medium text-text-main dark:text-white">Apple</span>
-                    </button>
-                </div>
 
                 <div className="text-center">
                     <p className="text-text-muted text-sm">
