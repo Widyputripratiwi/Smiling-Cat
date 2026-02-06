@@ -17,18 +17,18 @@ if (!fs.existsSync(uploadDir)) {
     fs.mkdirSync(uploadDir, { recursive: true });
 }
 
-// CORS for all routes including auth
+// CORS for all routes - using wildcard for simplicity
 app.use(
     cors({
-        origin: [
-            process.env.FRONTEND_URL || 'http://localhost:5173',
-            'http://203.175.11.165',
-        ],
+        origin: true, // Allow all origins
         credentials: true,
-        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-        allowedHeaders: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+        allowedHeaders: ['Content-Type', 'Authorization', 'Origin', 'Accept', 'X-Requested-With'],
     })
 );
+
+// Handle preflight for auth routes explicitly
+app.options('/api/auth/*', cors());
 
 // Better Auth - BEFORE helmet and body parsers
 app.use('/api/auth', toNodeHandler(auth));
