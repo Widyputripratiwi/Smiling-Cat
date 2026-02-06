@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export function BasicInfoForm({ onNext, onCancel }) {
+export function BasicInfoForm({ onNext, onCancel, isLoading = false, submitLabel = 'Lanjut: Detail Kesehatan' }) {
     const [name, setName] = useState('');
     const [breed, setBreed] = useState('');
     const [age, setAge] = useState('');
@@ -146,9 +146,9 @@ export function BasicInfoForm({ onNext, onCancel }) {
 
                     <div className="h-px w-full bg-border-light dark:bg-border-dark my-2"></div>
 
-                    <button type="submit" className="group w-full bg-primary hover:bg-primary-hover text-white font-bold text-lg py-4 rounded-xl shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-all duration-300 flex items-center justify-center gap-2 active:scale-[0.98]">
-                        <span>Lanjut: Detail Kesehatan</span>
-                        <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    <button type="submit" disabled={isLoading} className="group w-full bg-primary hover:bg-primary-hover disabled:opacity-70 text-white font-bold text-lg py-4 rounded-xl shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-all duration-300 flex items-center justify-center gap-2 active:scale-[0.98]">
+                        <span>{isLoading ? 'Menyimpan...' : submitLabel}</span>
+                        {!isLoading && <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>}
                     </button>
                     <div className="text-center">
                         <button type="button" onClick={onCancel} className="text-sm font-semibold text-text-muted hover:text-text-main dark:hover:text-white transition-colors">
