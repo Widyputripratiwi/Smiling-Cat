@@ -23,7 +23,7 @@ export interface AnalysisResult {
     imageHeight?: number;
 }
 
-export type ScanType = 'skin' | 'eye' | 'both';
+export type ScanType = 'skin';
 
 export class RoboflowService {
     private apiKey: string;
@@ -77,14 +77,13 @@ export class RoboflowService {
 
     // Analyze image buffer with a specific model
     async analyzeImageBufferWithModel(
-        imageBuffer: Buffer,
-        modelType: 'skin' | 'eye'
-    ): Promise<{ predictions: RoboflowPrediction[]; modelType: 'skin' | 'eye'; imageWidth?: number; imageHeight?: number }> {
+        imageBuffer: Buffer
+    ): Promise<{ predictions: RoboflowPrediction[]; imageWidth?: number; imageHeight?: number }> {
         const base64Image = imageBuffer.toString('base64');
-        const config = roboflowConfig[modelType];
+        const config = roboflowConfig.skin;
         const url = `${config.baseUrl}/${config.projectId}/${config.modelVersion}`;
 
-        logToFile(`[${modelType.toUpperCase()}] Request URL: ${url}`);
+        logToFile(`[SKIN] Request URL: ${url}`);
 
         try {
             const response = await axios({
@@ -99,7 +98,7 @@ export class RoboflowService {
                 }
             });
 
-            logToFile(`[${modelType.toUpperCase()}] Response: ${JSON.stringify(response.data)}`);
+            logToFile(`[SKIN] Response: ${JSON.stringify(response.data)}`);
 
             // Handle different response formats
             let predictions: RoboflowPrediction[] = [];
@@ -135,152 +134,77 @@ export class RoboflowService {
                 }
             }
 
-            // Filter out false positive detections for eye model
-            // - Always allow 'healthy' class through
-            // - For disease classes: reject if bounding box is too large (>50%) OR confidence is too low (<40%)
-            if (modelType === 'eye' && response.data.image) {
-                const imageWidth = response.data.image.width;
-                const imageHeight = response.data.image.height;
-                const imageArea = imageWidth * imageHeight;
-
-                predictions = predictions.filter(p => {
-                    const className = p.class.toLowerCase();
-
-                    // Always allow healthy detections through (with minimum 30% confidence)
-                    if (className === 'healthy') {
-                        if (p.confidence < 0.3) {
-                            logToFile(`[EYE] Filtered out very low confidence healthy: ${(p.confidence * 100).toFixed(1)}%`);
-                            return false;
-                        }
-                        return true;
-                    }
-
-                    // For disease detections: check confidence (min 40%)
-                    if (p.confidence < 0.4) {
-                        logToFile(`[EYE] Filtered out low confidence detection: ${p.class} (${(p.confidence * 100).toFixed(1)}%)`);
-                        return false;
-                    }
-
-                    // For disease detections: check bounding box size (max 50% coverage)
-                    if (p.width && p.height) {
-                        const boxArea = p.width * p.height;
-                        const coverageRatio = boxArea / imageArea;
-                        if (coverageRatio > 0.5) {
-                            logToFile(`[EYE] Filtered out oversized detection: ${p.class} covers ${(coverageRatio * 100).toFixed(1)}% of image`);
-                            return false;
-                        }
-                    }
-
-                    return true;
-                });
-            }
-
             const imageWidth = response.data.image?.width;
             const imageHeight = response.data.image?.height;
-            return { predictions, modelType, imageWidth, imageHeight };
+            return { predictions, imageWidth, imageHeight };
         } catch (error: any) {
-            logToFile(`[${modelType.toUpperCase()}] Error: ${error.response?.status || 'unknown'} - ${JSON.stringify(error.response?.data || error.message)}`);
-            return { predictions: [], modelType, imageWidth: undefined, imageHeight: undefined };
+            logToFile(`[SKIN] Error: ${error.response?.status || 'unknown'} - ${JSON.stringify(error.response?.data || error.message)}`);
+            return { predictions: [], imageWidth: undefined, imageHeight: undefined };
         }
     }
 
-    // Main method: Analyze with multiple models
-    async analyzeImageBuffer(imageBuffer: Buffer, scanType: ScanType = 'skin'): Promise<AnalysisResult> {
+    // Main method: Analyze with skin model
+    async analyzeImageBuffer(imageBuffer: Buffer): Promise<AnalysisResult> {
         if (!this.apiKey || this.apiKey.startsWith('your_')) {
             return this.getDefaultAnalysis();
         }
 
         try {
-            logToFile(`Starting analysis with scanType: ${scanType}`);
+            logToFile(`Starting analysis skin model`);
             logToFile(`Image buffer size: ${imageBuffer.length} bytes`);
 
-            const modelsToUse: ('skin' | 'eye')[] =
-                scanType === 'both' ? ['skin', 'eye'] : [scanType];
+            // Run skin model
+            const result = await this.analyzeImageBufferWithModel(imageBuffer);
 
-            // Run all models in parallel
-            const results = await Promise.all(
-                modelsToUse.map(model => this.analyzeImageBufferWithModel(imageBuffer, model))
-            );
-
-            // Combine results from all models
-            return this.combineResults(results);
-        } catch (error: any) {
-            logToFile(`Analysis Error: ${error.message}`);
-            return this.getDefaultAnalysis();
-        }
-    }
-
-    // Combine results from multiple models
-    private combineResults(
-        results: { predictions: RoboflowPrediction[]; modelType: 'skin' | 'eye'; imageWidth?: number; imageHeight?: number }[]
-    ): AnalysisResult {
-        const allPredictions: RoboflowPrediction[] = [];
-        const detectedAreas: AnalysisResult['detectedAreas'] = [];
-
-        // Get image dimensions from first result that has them
-        let imageWidth: number | undefined;
-        let imageHeight: number | undefined;
-
-        for (const result of results) {
-            // Capture image dimensions from first valid response
-            if (!imageWidth && result.imageWidth) {
-                imageWidth = result.imageWidth;
-                imageHeight = result.imageHeight;
-            }
+            const allPredictions: RoboflowPrediction[] = [];
+            const detectedAreas: AnalysisResult['detectedAreas'] = [];
 
             if (result.predictions.length > 0) {
                 allPredictions.push(...result.predictions);
                 detectedAreas.push({
-                    type: result.modelType,
+                    type: 'skin',
                     predictions: result.predictions,
                 });
             }
-        }
 
-        if (allPredictions.length === 0) {
-            return {
-                resultId: `rf-${Date.now()}`,
-                diagnosis: 'Tidak ada masalah terdeteksi',
-                confidence: 100,
-                severity: 'none',
-                symptoms: [],
-                recommendations: 'Kucing Anda tampak sehat. Lanjutkan perawatan rutin.',
-                detectedAreas: [],
-                imageWidth,
-                imageHeight,
-            };
-        }
+            if (allPredictions.length === 0) {
+                return {
+                    resultId: `rf-${Date.now()}`,
+                    diagnosis: 'Tidak ada masalah terdeteksi',
+                    confidence: 100,
+                    severity: 'none',
+                    symptoms: [],
+                    recommendations: 'Kucing Anda tampak sehat. Lanjutkan perawatan rutin.',
+                    detectedAreas: [],
+                    imageWidth: result.imageWidth,
+                    imageHeight: result.imageHeight,
+                };
+            }
 
-        // Get highest confidence prediction
-        const topPrediction = allPredictions.reduce((prev, current) =>
-            prev.confidence > current.confidence ? prev : current
-        );
-
-        const symptoms = this.extractSymptoms(allPredictions);
-        const avgConfidence = allPredictions.reduce((sum, p) => sum + p.confidence, 0) / allPredictions.length;
-        const severity = this.determineSeverity(symptoms, avgConfidence);
-
-        // Generate diagnosis based on detected areas
-        const diagnosisParts: string[] = [];
-        for (const area of detectedAreas) {
-            const topInArea = area.predictions.reduce((prev, current) =>
+            // Get highest confidence prediction
+            const topPrediction = allPredictions.reduce((prev, current) =>
                 prev.confidence > current.confidence ? prev : current
             );
-            const areaLabel = area.type === 'skin' ? 'Kulit' : 'Mata';
-            diagnosisParts.push(`${areaLabel}: ${this.formatClassName(topInArea.class)}`);
-        }
 
-        return {
-            resultId: `rf-${Date.now()}`,
-            diagnosis: diagnosisParts.join(' | ') || this.generateDiagnosis(topPrediction.class, avgConfidence),
-            confidence: Math.min(avgConfidence * 100, 100),
-            severity,
-            symptoms,
-            recommendations: this.generateRecommendations(symptoms, severity),
-            detectedAreas,
-            imageWidth,
-            imageHeight,
-        };
+            const symptoms = this.extractSymptoms(allPredictions);
+            const avgConfidence = allPredictions.reduce((sum, p) => sum + p.confidence, 0) / allPredictions.length;
+            const severity = this.determineSeverity(symptoms, avgConfidence);
+
+            return {
+                resultId: `rf-${Date.now()}`,
+                diagnosis: this.generateDiagnosis(topPrediction.class, avgConfidence),
+                confidence: Math.min(avgConfidence * 100, 100),
+                severity,
+                symptoms,
+                recommendations: this.generateRecommendations(symptoms, severity),
+                detectedAreas,
+                imageWidth: result.imageWidth,
+                imageHeight: result.imageHeight,
+            };
+        } catch (error: any) {
+            logToFile(`Analysis Error: ${error.message}`);
+            return this.getDefaultAnalysis();
+        }
     }
 
     private extractSymptoms(predictions: RoboflowPrediction[]): string[] {
@@ -296,7 +220,7 @@ export class RoboflowService {
             .replace(/\b\w/g, l => l.toUpperCase());
     }
 
-    private parseRoboflowResult(result: RoboflowResult, modelType: 'skin' | 'eye'): AnalysisResult {
+    private parseRoboflowResult(result: RoboflowResult, modelType: 'skin'): AnalysisResult {
         const predictions = result.predictions || [];
 
         if (predictions.length === 0) {
@@ -383,9 +307,7 @@ export class RoboflowService {
         // Add symptom-specific recommendations
         const symptomsLower = symptoms.map(s => s.toLowerCase());
 
-        if (symptomsLower.some(s => s.includes('eye') || s.includes('mata'))) {
-            recommendations.push('Bersihkan area mata dengan kapas basah hangat.');
-        }
+
         if (symptomsLower.some(s => s.includes('skin') || s.includes('kulit') || s.includes('ringworm'))) {
             recommendations.push('Jaga kebersihan kulit dan hindari kelembaban berlebih.');
         }
