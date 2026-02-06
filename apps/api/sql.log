@@ -3736,3 +3736,4 @@
 [Query] select "id", "pet_id", "scan_code", "image_url", "roboflow_result_id", "diagnosis", "confidence", "severity", "recommendations", "detected_areas", "image_width", "image_height", "scanned_at", "created_at" from "health_scans" where "health_scans"."id" = $1 -- Params: ["07b0cbba-ce42-4da9-9c3a-122dadf048f4"]
 [Query] select "id", "user_id", "title", "message", "notification_type", "is_read", "metadata", "created_at" from "notifications" where ("notifications"."user_id" = $1 and "notifications"."is_read" = $2) -- Params: ["HSgAJNUqMnNiA4ISaeVYE8RsyqdpInxF",false]
 [Query] select "id", "scan_id", "symptom", "created_at" from "scan_symptoms" where "scan_symptoms"."scan_id" = $1 -- Params: ["07b0cbba-ce42-4da9-9c3a-122dadf048f4"]
+[Query] select "id", "name", "email", "image", "email_verified", "created_at", "updated_at" from "users" where "users"."email" = $1 -- Params: ["test@example.com"]
