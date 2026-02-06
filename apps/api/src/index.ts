@@ -43,8 +43,8 @@ app.use(express.urlencoded({ extended: true }));
 // Static files for uploads
 app.use('/uploads', express.static(uploadDir));
 
-// Better Auth - mount directly to preserve full path
-app.all('/api/auth/*', toNodeHandler(auth));
+// Better Auth - app.use strips /api/auth prefix before passing to handler
+app.use('/api/auth', toNodeHandler(auth));
 
 // API routes
 app.use('/api', routes);
