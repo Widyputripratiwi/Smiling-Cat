@@ -13,7 +13,6 @@ export const auth = betterAuth({
             verification: schema.verifications,
         },
     }),
-    basePath: '/api/auth', // Tell Better Auth where it's mounted
     emailAndPassword: {
         enabled: true,
         autoSignIn: true,
