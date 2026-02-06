@@ -33,18 +33,23 @@ app.use(
 );
 app.use(
     cors({
-        origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+        origin: [
+            process.env.FRONTEND_URL || 'http://localhost:5173',
+            'http://203.175.11.165',
+        ],
         credentials: true,
     })
 );
+
+// Better Auth - MUST be before express.json() to read raw body
+app.use('/api/auth', toNodeHandler(auth));
+
+// Body parsing for other routes
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Static files for uploads
 app.use('/uploads', express.static(uploadDir));
-
-// Better Auth - app.use strips /api/auth prefix before passing to handler
-app.use('/api/auth', toNodeHandler(auth));
 
 // API routes
 app.use('/api', routes);
