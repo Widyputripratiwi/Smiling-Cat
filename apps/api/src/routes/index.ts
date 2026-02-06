@@ -1,5 +1,4 @@
 import { Router } from 'express';
-import authRoutes from './auth.routes';
 import petRoutes from './pet.routes';
 import scanRoutes from './scan.routes';
 import vaccinationRoutes from './vaccination.routes';
@@ -12,8 +11,7 @@ router.get('/health', (_req, res) => {
     res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
-// Auth routes (handled by Better Auth)
-router.use('/auth', authRoutes);
+// Note: Auth routes are handled directly in index.ts
 
 // API routes
 router.use('/pets', petRoutes);

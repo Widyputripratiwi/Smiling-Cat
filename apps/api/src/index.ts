@@ -2,6 +2,8 @@ import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
+import { toNodeHandler } from 'better-auth/node';
+import { auth } from './config/auth';
 import routes from './routes';
 import { errorMiddleware, notFoundMiddleware } from './middleware/error.middleware';
 import fs from 'fs';
@@ -40,6 +42,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // Static files for uploads
 app.use('/uploads', express.static(uploadDir));
+
+// Better Auth - mount directly to preserve full path
+app.all('/api/auth/*', toNodeHandler(auth));
 
 // API routes
 app.use('/api', routes);
