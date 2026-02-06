@@ -2,12 +2,24 @@ import axios from 'axios';
 
 // Create a configured axios instance
 export const api = axios.create({
-    baseURL: import.meta.env.VITE_API_URL || 'http://localhost:3000/api', // Use env var
-    withCredentials: true, // Send cookies with requests
+    baseURL: import.meta.env.VITE_API_URL || 'http://localhost:3000/api',
+    withCredentials: true,
     headers: {
         'Content-Type': 'application/json',
     },
 });
+
+// Request interceptor to add auth token
+api.interceptors.request.use(
+    (config) => {
+        const token = localStorage.getItem('auth_token');
+        if (token) {
+            config.headers.Authorization = `Bearer ${token}`;
+        }
+        return config;
+    },
+    (error) => Promise.reject(error)
+);
 
 // Response interceptor for global error handling (optional but recommended)
 api.interceptors.response.use(

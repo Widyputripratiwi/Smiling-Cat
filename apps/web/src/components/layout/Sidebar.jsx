@@ -22,7 +22,6 @@ export function Sidebar() {
         { name: 'Dashboard', path: '/dashboard', icon: 'dashboard' },
         { name: 'Hewan Peliharaan', path: '/my-pets', icon: 'pets' },
         { name: 'Smart Scanner', path: '/scanner', icon: 'photo_camera_front' },
-        { name: 'Riwayat Kesehatan', path: '/history', icon: 'medical_services' },
         { name: 'Pengaturan', path: '/settings', icon: 'settings' },
     ];
 
