@@ -26,32 +26,32 @@ export default function Register() {
         setError('');
 
         try {
-            const { data, error } = await authClient.signUp.email({
-                email,
-                password,
-                name: name || 'Teman Smiling Cat', // Default name
-                callbackURL: '/dashboard'
+            // Use manual auth endpoint (emergency bypass)
+            const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+            const response = await fetch(`${apiUrl}/manual-auth/signup`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email,
+                    password,
+                    name: name || 'Teman Smiling Cat',
+                }),
             });
 
-            if (data) {
+            const data = await response.json();
+
+            if (response.ok && data.success) {
+                // Store token in localStorage
+                localStorage.setItem('auth_token', data.token);
+                localStorage.setItem('user', JSON.stringify(data.user));
                 navigate('/dashboard');
-            } else if (error) {
-                // Handle specific error types
-                if (error.message?.toLowerCase().includes('already exists') ||
-                    error.message?.toLowerCase().includes('already registered') ||
-                    error.code === 'USER_ALREADY_EXISTS') {
-                    setError('Email sudah terdaftar. Silakan gunakan email lain atau login.');
-                } else {
-                    setError(error.message || 'Registrasi gagal. Silakan coba lagi.');
-                }
+            } else {
+                setError(data.error || 'Registrasi gagal. Silakan coba lagi.');
             }
         } catch (err) {
-            // Check if it's a network error or API error
-            if (err.response?.status === 500) {
-                setError('Email sudah terdaftar atau server sedang sibuk. Silakan coba lagi.');
-            } else {
-                setError('Terjadi kesalahan saat registrasi. Silakan coba lagi.');
-            }
+            setError('Terjadi kesalahan saat registrasi. Silakan coba lagi.');
             console.error(err);
         } finally {
             setLoading(false);

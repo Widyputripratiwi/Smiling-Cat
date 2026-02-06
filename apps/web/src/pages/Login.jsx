@@ -18,18 +18,32 @@ export default function Login() {
         setError('');
 
         try {
-            const { data, error } = await authClient.signIn.email({
-                email,
-                password,
+            // Use manual auth endpoint (emergency bypass)
+            const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+            const response = await fetch(`${apiUrl}/manual-auth/signin`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email,
+                    password,
+                }),
             });
 
-            if (data) {
+            const data = await response.json();
+
+            if (response.ok && data.success) {
+                // Store token in localStorage
+                localStorage.setItem('auth_token', data.token);
+                localStorage.setItem('user', JSON.stringify(data.user));
                 navigate('/dashboard');
-            } else if (error) {
-                setError(error.message || 'Login gagal. Periksa kembali email dan password Anda.');
+            } else {
+                setError(data.error || 'Login gagal. Periksa kembali email dan password Anda.');
             }
         } catch (err) {
             setError('Terjadi kesalahan. Silakan coba lagi.');
+            console.error(err);
         } finally {
             setLoading(false);
         }
