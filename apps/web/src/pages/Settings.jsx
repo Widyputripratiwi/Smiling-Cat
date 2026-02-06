@@ -1,27 +1,28 @@
-import React from 'react';
-import { authClient } from '../lib/auth-client';
+import React, { useState, useEffect } from 'react';
 
 export default function Settings() {
-    const { data: session } = authClient.useSession();
-    const user = session?.user;
+    const [user, setUser] = useState(null);
 
     // Local state for form management
-    const [formData, setFormData] = React.useState({
-        name: user?.name || '',
-        email: user?.email || '',
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
     });
-    const [isDirty, setIsDirty] = React.useState(false);
-    const [isSaving, setIsSaving] = React.useState(false);
+    const [isDirty, setIsDirty] = useState(false);
+    const [isSaving, setIsSaving] = useState(false);
 
-    // Update local state when user session loads
-    React.useEffect(() => {
-        if (user) {
+    // Load user from localStorage
+    useEffect(() => {
+        const storedUser = localStorage.getItem('user');
+        if (storedUser) {
+            const parsedUser = JSON.parse(storedUser);
+            setUser(parsedUser);
             setFormData({
-                name: user.name || '',
-                email: user.email || '',
+                name: parsedUser.name || '',
+                email: parsedUser.email || '',
             });
         }
-    }, [user]);
+    }, []);
 
     const handleChange = (e) => {
         const { name, value } = e.target;

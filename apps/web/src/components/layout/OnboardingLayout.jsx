@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Outlet, NavLink, Navigate, useLocation } from 'react-router-dom';
-import { authClient } from '../../lib/auth-client';
 
 export function OnboardingLayout() {
-    const { data: session, isPending, error } = authClient.useSession();
+    const [session, setSession] = useState(null);
+    const [isPending, setIsPending] = useState(true);
     const location = useLocation();
+
+    useEffect(() => {
+        // Check localStorage for auth
+        const token = localStorage.getItem('auth_token');
+        const user = localStorage.getItem('user');
+        if (token && user) {
+            setSession({ user: JSON.parse(user), token });
+        }
+        setIsPending(false);
+    }, []);
 
     if (isPending) {
         return (

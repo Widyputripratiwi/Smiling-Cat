@@ -1,18 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { authClient } from '../../lib/auth-client';
 
 export function Sidebar() {
     const navigate = useNavigate();
-    const { data: session } = authClient.useSession();
-    const user = session?.user;
+    const [user, setUser] = useState(null);
 
-    const handleLogout = async () => {
-        await authClient.signOut({
-            fetchOptions: {
-                onSuccess: () => navigate('/login')
-            }
-        });
+    useEffect(() => {
+        const storedUser = localStorage.getItem('user');
+        if (storedUser) {
+            setUser(JSON.parse(storedUser));
+        }
+    }, []);
+
+    const handleLogout = () => {
+        localStorage.removeItem('auth_token');
+        localStorage.removeItem('user');
+        navigate('/login');
     };
 
     const navItems = [

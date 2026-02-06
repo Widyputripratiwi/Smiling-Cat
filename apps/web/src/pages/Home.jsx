@@ -1,15 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { usePets } from '../hooks/usePets';
 import { useRecentScans } from '../hooks/useScans';
-import { authClient } from '../lib/auth-client';
 
 export default function Home() {
-    const { data: user } = authClient.useSession();
+    const [user, setUser] = useState(null);
     const { data: pets = [], isLoading: petsLoading } = usePets();
     const { data: scans = [], isLoading: scansLoading } = useRecentScans();
 
-    const firstName = user?.user?.name?.split(' ')[0] || 'Sobat';
+    useEffect(() => {
+        const storedUser = localStorage.getItem('user');
+        if (storedUser) {
+            setUser(JSON.parse(storedUser));
+        }
+    }, []);
+
+    const firstName = user?.name?.split(' ')[0] || 'Sobat';
 
     const activePetsCount = pets.length;
     const attentionNeededPets = pets.filter(p => p.status !== 'healthy').length;
