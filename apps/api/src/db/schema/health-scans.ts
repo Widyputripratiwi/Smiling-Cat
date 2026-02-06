@@ -23,7 +23,7 @@ export const healthScans = pgTable('health_scans', {
     severity: severityEnum('severity').default('none'),
     recommendations: text('recommendations'),
     detectedAreas: json('detected_areas').$type<{
-        type: 'skin';
+        type: 'skin' | 'eye';
         predictions: {
             class: string;
             confidence: number;
